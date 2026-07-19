@@ -59,11 +59,16 @@ function updateMenuStats() {
   if (muteBtn) muteBtn.textContent = save.muted ? '🔇 Sound off' : '🔊 Sound on';
   const motionBtn = document.getElementById('motionBtn');
   if (motionBtn) motionBtn.textContent = save.reducedMotion ? 'Calm motion' : 'Full motion';
+  const voiceBtn = document.getElementById('voiceBtn');
+  if (voiceBtn) voiceBtn.textContent = save.voiceOff ? '🗣 Voice off' : '🗣 Voice on';
   const habLabel = document.getElementById('habLabel');
   if (habLabel) {
     const h = HABITATS[save.habitat] || HABITATS.savanna;
     habLabel.textContent = h.name;
   }
+  document.querySelectorAll('.mode-chip').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.mode === (save.mode || 'find'));
+  });
 }
 
 function showMenu() {
@@ -86,9 +91,12 @@ function showPlay() {
 function updatePlayChrome() {
   const hab = HABITATS[habitatId] || HABITATS.savanna;
   const label = document.getElementById('playHabLabel');
-  if (label) label.textContent = hab.name;
+  if (label) {
+    if (findTarget) label.textContent = 'Find ' + findTarget.name;
+    else label.textContent = hab.name;
+  }
   const taps = document.getElementById('playTaps');
-  if (taps) taps.textContent = String(save.taps | 0);
+  if (taps) taps.textContent = findTarget ? (finds + ' found') : ((save.taps | 0) + ' taps');
 }
 
 function frame(now) {
@@ -122,7 +130,12 @@ function handlePointer(e) {
   lastPointerHandledAt = now;
 
   const { x, y } = eventToStage(e);
-  // Habitat strip: left / right thirds of bottom bar already have buttons — canvas taps only animals
+  if (hitTreat(x, y)) {
+    onTapTreat();
+    updatePlayChrome();
+    e.preventDefault();
+    return;
+  }
   const hit = hitTest(x, y);
   if (hit) {
     onTapAnimal(hit);
@@ -157,6 +170,20 @@ function wireUi() {
     setReducedMotion(!save.reducedMotion);
     sfxClick();
     updateMenuStats();
+  });
+
+  document.getElementById('voiceBtn')?.addEventListener('click', () => {
+    setVoiceOff(!save.voiceOff);
+    sfxClick();
+    updateMenuStats();
+  });
+
+  document.querySelectorAll('.mode-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setMode(btn.dataset.mode);
+      sfxClick();
+      updateMenuStats();
+    });
   });
 
   document.getElementById('btnHabPrev')?.addEventListener('click', () => {

@@ -187,6 +187,31 @@ button.ghost {
   font-size: 0.92rem;
 }
 
+.mode-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.mode-chip {
+  margin-top: 0 !important;
+  padding: 10px 8px !important;
+  font-size: 0.85rem !important;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  width: 100%;
+}
+
+.mode-chip.active {
+  background: rgba(125, 255, 160, 0.22);
+  color: var(--text);
+  border-color: var(--green);
+}
+
 .hab-row {
   display: flex;
   align-items: center;

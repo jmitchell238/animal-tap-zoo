@@ -3,6 +3,8 @@
 const defaultSave = () => ({
   muted: false,
   reducedMotion: false,
+  voiceOff: false,
+  mode: 'find', // 'find' | 'free'
   taps: 0,
   habitat: 'savanna',
   favorites: {}, // animalId -> count
@@ -20,6 +22,7 @@ function loadSave() {
     const data = JSON.parse(raw);
     save = Object.assign(defaultSave(), data);
     if (!HABITAT_IDS.includes(save.habitat)) save.habitat = 'savanna';
+    if (save.mode !== 'find' && save.mode !== 'free') save.mode = 'find';
     if (typeof save.taps !== 'number' || save.taps < 0) save.taps = 0;
     if (!save.favorites || typeof save.favorites !== 'object') save.favorites = {};
   } catch {
@@ -55,6 +58,18 @@ function setHabitat(id) {
     save.habitat = id;
     persistSave();
   }
+}
+
+function setMode(id) {
+  if (id === 'find' || id === 'free') {
+    save.mode = id;
+    persistSave();
+  }
+}
+
+function setVoiceOff(v) {
+  save.voiceOff = !!v;
+  persistSave();
 }
 
 function topAnimalId() {

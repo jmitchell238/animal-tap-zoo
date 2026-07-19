@@ -1,6 +1,6 @@
 # Animal Tap Zoo
 
-Tap cute zoo animals — they bounce, make a sound, and sprinkle confetti. **Zero fail.** Built for ages **4–6**.
+Find and tap cute zoo animals — big reactions, spoken names, snacks, **zero fail.** Built for ages **4–6**.
 
 **Play:** https://jmitchell238.github.io/animal-tap-zoo/
 
@@ -10,14 +10,16 @@ Part of [Arcade Hub](https://jmitchell238.github.io/arcade-hub/).
 
 ## Features
 
-- Big touch targets, short sessions
+- **Find Me!** mode: “Find the Lion!” with speech + glow hints
+- **Free Play**: tap anyone for dances, hearts, streaks
+- Animals **wander**, spin, and leave hearts
+- Floating **treats** to tap for bonus cheer
 - Habitats: **Savanna**, **Pond**, **Farm**, **Forest**
-- 14 cartoon animals drawn on canvas (no asset pack required)
-- Soft Web Audio “animal” sounds
-- Confetti + praise text; milestone cheer every 10 taps
-- Sound mute + reduced motion
+- Side-view cartoon animals (elephant trunk is a proper profile snout)
+- Web Audio sounds + optional spoken names
+- Sound / voice / reduced motion toggles
 - Installable PWA (offline after first visit)
-- Progress (tap counts / favorite) in `localStorage`
+
 
 ## Stack
 

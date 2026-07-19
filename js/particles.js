@@ -45,6 +45,27 @@ function spawnPraise(x, y, text) {
   });
 }
 
+function spawnHearts(x, y) {
+  const n = save.reducedMotion ? 3 : 8;
+  for (let i = 0; i < n; i++) {
+    const ang = -Math.PI / 2 + (Math.random() - 0.5) * 1.2;
+    const sp = 40 + Math.random() * 80;
+    particles.push({
+      x: x + (Math.random() - 0.5) * 20,
+      y: y,
+      vx: Math.cos(ang) * sp * 0.4,
+      vy: Math.sin(ang) * sp - 30,
+      life: 0.7 + Math.random() * 0.4,
+      max: 0.7 + Math.random() * 0.4,
+      r: 4 + Math.random() * 4,
+      color: ['#FF6B8A', '#FF8FAB', '#FF4081'][i % 3],
+      rot: 0,
+      spin: 0,
+      kind: 'heart',
+    });
+  }
+}
+
 function updateParticles(dt) {
   for (let i = particles.length - 1; i >= 0; i--) {
     const p = particles[i];
@@ -78,7 +99,18 @@ function drawParticles(ctx) {
     ctx.rotate(p.rot);
     ctx.globalAlpha = a;
     ctx.fillStyle = p.color;
-    ctx.fillRect(-p.r, -p.r * 0.5, p.r * 2, p.r);
+    if (p.kind === 'heart') {
+      // simple heart blob
+      ctx.beginPath();
+      ctx.arc(-p.r * 0.35, 0, p.r * 0.55, 0, Math.PI * 2);
+      ctx.arc(p.r * 0.35, 0, p.r * 0.55, 0, Math.PI * 2);
+      ctx.moveTo(-p.r * 0.85, p.r * 0.1);
+      ctx.lineTo(0, p.r * 1.1);
+      ctx.lineTo(p.r * 0.85, p.r * 0.1);
+      ctx.fill();
+    } else {
+      ctx.fillRect(-p.r, -p.r * 0.5, p.r * 2, p.r);
+    }
     ctx.restore();
   }
   for (const t of floatTexts) {

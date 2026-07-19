@@ -1,6 +1,6 @@
 // Animal Tap Zoo service worker
 // Bump with GAME_VERSION in js/config.js (MAJOR.MINOR.PATCH).
-const CACHE = 'animal-tap-zoo-1.0.000';
+const CACHE = 'animal-tap-zoo-1.1.000';
 
 const ASSETS = [
   './',

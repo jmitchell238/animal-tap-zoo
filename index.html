@@ -25,7 +25,7 @@
       <div class="menu-card">
         <img class="logo-icon" src="icons/icon-192.png" alt="" width="72" height="72" />
         <h1><span class="c1">Animal</span> <span class="c2">Tap Zoo</span></h1>
-        <p class="tagline">Tap · bounce · hear · celebrate</p>
+        <p class="tagline">Find friends · big reactions · no fail</p>
 
         <div class="stats">
           <div><span class="lbl">Taps</span><strong id="statTaps">0</strong></div>
@@ -33,6 +33,12 @@
         </div>
 
         <button id="btnPlay" class="primary" type="button">▶  Play</button>
+
+        <p class="mode-label">Play style</p>
+        <div class="mode-row" role="group" aria-label="Mode">
+          <button type="button" class="mode-chip active" data-mode="find">Find Me!</button>
+          <button type="button" class="mode-chip" data-mode="free">Free Play</button>
+        </div>
 
         <p class="mode-label">Starting habitat</p>
         <div class="hab-row" role="group" aria-label="Habitat">
@@ -43,16 +49,18 @@
 
         <button id="btnHow" class="secondary" type="button">How to play</button>
         <button id="muteBtn" class="ghost" type="button">🔊 Sound on</button>
+        <button id="voiceBtn" class="ghost" type="button">🗣 Voice on</button>
         <button id="motionBtn" class="ghost" type="button">Full motion</button>
         <button id="btnHub" class="ghost" type="button">← Arcade Hub</button>
 
         <div id="howPanel" class="how hidden">
           <ol>
-            <li>Tap any <b>animal</b> — they bounce, make a sound, and sprinkle confetti.</li>
-            <li>There is <b>no wrong tap</b>. Every tap is a win.</li>
-            <li>Use <b>◀ ▶</b> to visit Savanna, Pond, Farm, and Forest.</li>
-            <li>Every 10 taps gets a little celebration.</li>
-            <li>Made for little hands — big targets, short sessions.</li>
+            <li><b>Find Me!</b> listens for “Find the Lion!” — tap the right friend for a big party.</li>
+            <li>Wrong animal? They still bounce — no fail, just try again.</li>
+            <li><b>Free Play</b> — tap anyone for dances, hearts, and snacks.</li>
+            <li>Animals <b>wander</b> and snack treats 🍎 appear — tap those too!</li>
+            <li>After a few seconds, the right animal gets a <b>yellow glow</b> hint.</li>
+            <li>Visit Savanna, Pond, Farm, and Forest with ◀ ▶.</li>
           </ol>
         </div>
 

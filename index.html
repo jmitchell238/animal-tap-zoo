@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0c1a14" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Animal Tap Zoo" />
+  <meta name="description" content="Tap cute zoo animals for bounce, sounds, and confetti. Zero fail — made for little kids ages 4–6." />
+  <title>Animal Tap Zoo</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="stage">
+    <canvas id="cv" width="390" height="700"></canvas>
+    <div id="versionTag"></div>
+
+    <!-- MENU -->
+    <div class="screen" data-screen="menu" id="screenMenu">
+      <div class="menu-card">
+        <img class="logo-icon" src="icons/icon-192.png" alt="" width="72" height="72" />
+        <h1><span class="c1">Animal</span> <span class="c2">Tap Zoo</span></h1>
+        <p class="tagline">Tap · bounce · hear · celebrate</p>
+
+        <div class="stats">
+          <div><span class="lbl">Taps</span><strong id="statTaps">0</strong></div>
+          <div><span class="lbl">Favorite</span><strong id="statFav">—</strong></div>
+        </div>
+
+        <button id="btnPlay" class="primary" type="button">▶  Play</button>
+
+        <p class="mode-label">Starting habitat</p>
+        <div class="hab-row" role="group" aria-label="Habitat">
+          <button type="button" id="btnHabPrev" title="Previous habitat">◀</button>
+          <div class="hab-mid" id="habLabel">Savanna</div>
+          <button type="button" id="btnHabNext" title="Next habitat">▶</button>
+        </div>
+
+        <button id="btnHow" class="secondary" type="button">How to play</button>
+        <button id="muteBtn" class="ghost" type="button">🔊 Sound on</button>
+        <button id="motionBtn" class="ghost" type="button">Full motion</button>
+        <button id="btnHub" class="ghost" type="button">← Arcade Hub</button>
+
+        <div id="howPanel" class="how hidden">
+          <ol>
+            <li>Tap any <b>animal</b> — they bounce, make a sound, and sprinkle confetti.</li>
+            <li>There is <b>no wrong tap</b>. Every tap is a win.</li>
+            <li>Use <b>◀ ▶</b> to visit Savanna, Pond, Farm, and Forest.</li>
+            <li>Every 10 taps gets a little celebration.</li>
+            <li>Made for little hands — big targets, short sessions.</li>
+          </ol>
+        </div>
+
+        <p id="versionMenu" class="ver"></p>
+      </div>
+    </div>
+
+    <!-- PLAY chrome -->
+    <button id="btnMenu" class="icon-btn play-chrome hidden" type="button" title="Menu">☰</button>
+
+    <div class="hab-bar play-chrome hidden">
+      <button type="button" id="btnPrevHab" title="Previous habitat">◀</button>
+      <div class="hab-info">
+        <strong id="playHabLabel">Savanna</strong>
+        <span id="playTaps">0</span> taps
+      </div>
+      <button type="button" id="btnNextHab" title="Next habitat">▶</button>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/save.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/animals.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

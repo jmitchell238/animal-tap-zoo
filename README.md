@@ -1,61 +1,58 @@
 # Animal Tap Zoo
 
-Find and tap cute zoo animals — big reactions, spoken names, snacks, **zero fail.** Built for ages **4–6**.
+Find and tap zoo animals. They react, say their names, and get snacks. There's no way to fail. Made for ages 4–6.
 
-**Play:** https://jmitchell238.github.io/animal-tap-zoo/
-
-Part of [Arcade Hub](https://jmitchell238.github.io/arcade-hub/).
-
----
+Play at https://jmitchell238.github.io/animal-tap-zoo/. It's one of the games in [Arcade Hub](https://jmitchell238.github.io/arcade-hub/).
 
 ## Features
 
-- **Find Me!** mode: “Find the Lion!” with speech + glow hints
-- **Free Play**: tap anyone for dances, hearts, streaks
-- Animals **wander**, spin, and leave hearts
-- Floating **treats** to tap for bonus cheer
-- Habitats: **Savanna**, **Pond**, **Farm**, **Forest**
-- Side-view cartoon animals (elephant trunk is a proper profile snout)
-- Web Audio sounds + optional spoken names
-- Sound / voice / reduced motion toggles
-- Installable PWA (offline after first visit)
+- Find Me mode: the game asks for an animal ("Find the Lion!"), says it out loud, and makes it glow if you need a hint
+- Free Play: tap any animal to make it dance or send up hearts
+- Animals wander around and spin
+- Floating treats to tap for extra cheers
+- Four habitats: Savanna, Pond, Farm and Forest
+- Sound effects, with optional spoken animal names
+- Settings for sound, voice and Calm motion
+- Installable PWA that works offline after the first visit
 
+## For parents
 
-## Stack
+- No lives, ads, accounts or fail screens. Every tap counts as a success.
+- Turn on Calm motion if the animation is too busy.
+- Turn the sound off for quiet car rides.
 
-Static HTML / CSS / Canvas. No build step.
+## Files
 
-| Path | Purpose |
-|------|---------|
-| `index.html` | Shell + menu chrome |
-| `css/style.css` | Layout / kid-friendly UI |
+| Path | Contents |
+|------|----------|
+| `index.html` | Page and menus |
+| `css/style.css` | Styles |
 | `js/config.js` | Version, habitats, animal data |
-| `js/animals.js` | Canvas animal drawers |
-| `js/game.js` | Field layout, tap logic, backgrounds |
-| `js/main.js` | Input, screens, SW register |
-| `manifest.webmanifest` + `sw.js` | PWA |
+| `js/animals.js` | Animal drawing |
+| `js/game.js` | Layout, tap handling, backgrounds |
+| `js/main.js` | Input, screens, service worker registration |
+| `manifest.webmanifest`, `sw.js` | PWA |
 
-## Versioning
-
-- `GAME_VERSION` in `js/config.js` — `MAJOR.MINOR.PATCH` (patch zero-padded to 3 digits)
-- Keep `CACHE` in `sw.js` in sync: `'animal-tap-zoo-' + GAME_VERSION`
-
-## Local preview
+## Running locally
 
 ```bash
 python3 -m http.server 8080
-# open http://localhost:8080
 ```
 
-Service workers need **http://localhost** or **https**.
+Then open http://localhost:8080. The service worker needs `localhost` or HTTPS.
 
-## Parents
+Plain HTML, CSS and canvas with no build step.
 
-- No lives, ads, accounts, or fail screens
-- Every tap is success
-- Use **Calm motion** if animations are too busy
-- **Sound off** for quiet car rides
+## Tests
+
+```bash
+node tests/run.mjs
+```
+
+## Versioning
+
+When you bump `GAME_VERSION` in `js/config.js`, set `CACHE` in `sw.js` to `'animal-tap-zoo-' + GAME_VERSION`.
 
 ## License
 
-Personal project for family Arcade Hub.
+Personal project for the family.

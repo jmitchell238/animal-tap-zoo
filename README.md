@@ -21,38 +21,10 @@ Play at https://jmitchell238.github.io/animal-tap-zoo/. It's one of the games in
 - Turn on Calm motion if the animation is too busy.
 - Turn the sound off for quiet car rides.
 
-## Files
-
-| Path | Contents |
-|------|----------|
-| `index.html` | Page and menus |
-| `css/style.css` | Styles |
-| `js/config.js` | Version, habitats, animal data |
-| `js/animals.js` | Animal drawing |
-| `js/game.js` | Layout, tap handling, backgrounds |
-| `js/main.js` | Input, screens, service worker registration |
-| `manifest.webmanifest`, `sw.js` | PWA |
-
-## Running locally
-
-```bash
-python3 -m http.server 8080
-```
-
-Then open http://localhost:8080. The service worker needs `localhost` or HTTPS.
-
-Plain HTML, CSS and canvas with no build step.
-
-## Tests
-
-```bash
-node tests/run.mjs
-```
-
-## Versioning
-
-When you bump `GAME_VERSION` in `js/config.js`, set `CACHE` in `sw.js` to `'animal-tap-zoo-' + GAME_VERSION`.
-
 ## License
 
 Personal project for the family.
+
+## Development
+
+See [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) for running it locally, tests and versioning, and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for how the code is organized.

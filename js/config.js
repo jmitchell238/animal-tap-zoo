@@ -2,7 +2,7 @@
 
 // Animal Tap Zoo — tuning knobs
 // Keep CACHE in sw.js in sync: 'animal-tap-zoo-' + GAME_VERSION
-const GAME_VERSION = '1.1.001';
+const GAME_VERSION = '1.1.002';
 const GAME_VERSION_LABEL = 'v' + GAME_VERSION;
 const GAME_NAME = 'Animal Tap Zoo';
 
